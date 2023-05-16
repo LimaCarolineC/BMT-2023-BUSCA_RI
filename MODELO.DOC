@@ -1,0 +1,15 @@
+IMPLEMENTAÇÃO DE UM SISTEMA DE RECUPERAÇÃO EM MEMÓRIA SEGUNDO O MODELO VETORIAL
+
+O arquivo "modelo_vetorial.csv" está organizado da seguinte maneira.
+	Word: Primeira coluna, representa cada termo contido em cada documento.
+	Wij: Peso de termo em relação a cada documento calculado através do TF/IDF seguindo a seguinte fórmula: 
+		TF = (número de vezes que o termo aparece no doc)/(número total de termos no doc
+        DF = log(número total de docs na coleção/ número de docs que contêm o termo)
+		Wij = TF*IDF
+		
+		
+O arquivo "resultados.csv" representa a similaridade entre as consultas e o modelo vetorial. Está organizado da seguinte maneira:
+	QueryNumber: Número da Questão do arquivo consultas.csv
+	Ranking: Representa o valor em ordem decrescente da similaridade na query específica;
+	Doc: Representa o número do documento;
+	Similaridade: Representa o valor da similaridade que foi obtida atravez da similaridade do cosseno 
