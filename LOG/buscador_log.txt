@@ -1,0 +1,18 @@
+2023-05-16 17:53:34,270 - Buscador - Iniciando Execucao
+2023-05-16 17:53:34,270 - Buscador - Iniciando leitura do arquivo de configuracao: ../SRC/config/BUSCA.CFG;
+2023-05-16 17:53:34,270 - Obtendo informacoes do arquivo: ../SRC/config/BUSCA.CFG;
+2023-05-16 17:53:34,270 - Leitura Instrucao modelo_vetorial.csv ok;
+2023-05-16 17:53:34,270 - Leitura Instrucao consultas.csv ok;
+2023-05-16 17:53:34,270 - Leitura Instrucao resultados.csv ok;
+2023-05-16 17:53:34,270 - Obtencao as informacoes do arquivo: ../SRC/config/BUSCA.CFG finalizada;
+2023-05-16 17:53:34,270 - Iniciando leitura do arquivo: ../RESULT/modelo_vetorial.csv;
+2023-05-16 17:53:34,317 - Tratando dados obtidos da consultas.csv
+2023-05-16 17:53:35,051 - Leitura do arquivo: ../RESULT/modelo_vetorial.csv finalizada;
+2023-05-16 17:53:35,051 - Iniciando leitura do arquivo: ../RESULT/consultas.csv;
+2023-05-16 17:53:35,051 - Tratando dados obtidos da consultas.csv
+2023-05-16 17:53:35,082 - Leitura do arquivo: ../RESULT/consultas.csv finalizada;
+2023-05-16 17:53:35,082 - Iniciando calculo de similaridade;
+2023-05-16 17:53:39,175 - Calculo de similaridade finalizado;
+2023-05-16 17:53:39,175 - Iniciando criacao do arquivo resultados.csv;
+2023-05-16 17:53:39,285 - Criacao do arquivo ../RESULT/resultados.csv finalizada;
+2023-05-16 17:53:39,285 - Buscador - Exacucao Finalizada
