@@ -42,9 +42,6 @@ logging.info(f"Numero de tags QueryNumber obtido: {len(query_number)}")
 query_text = raiz.findall('.//QueryText')
 logging.info(f"Numero de tags QueryText obtido: {len(query_text)}")
 
-#records = raiz.findall('.//Records')
-#logging.info(f"Numero de tags Records obtido: {len(records)}")
-
 consultas = ["QueryNumber;QueryText\n"]
 
 for i in range(len(query_number)):
@@ -63,25 +60,30 @@ with open(arquivo_consultas, 'w', newline='') as consultas_csv:
         consultas_csv.writelines(consultas)
 logging.info(f"Criacao do arquivo {instrucoes[1]} finalizada.")
 
+logging.info("Obtendo DocNumber e DocVotes.")
+
 esperados = ["QueryNumber;DocNumber;DocVotes\n"]
 
-logging.info("Obtendo DocNumber e DocVotes.")
-for i in range(len(query_number)):
+registros={}
+# Iterar sobre as tags QUERY
+for query in raiz.findall('QUERY'):
+    query_number = query.find('QueryNumber')
+    query_number = query_number.text
+    records = []
 
-    query = query_number[i].text
-
-    for item in raiz.iter('Item'):
-        doc_numbers = item.text
-        #print(doc_numbers)
+    # Iterar sobre os itens (registros) dentro da tag RECORDS
+    for item in query.find('Records'):
         score = item.get('score')
         doc_votes = len(score) - score.count("0")
-        #print(score_list)
-        esperados.append(query + ";" + doc_numbers + ";" + str(doc_votes) + "\n")
+        esperados.append(query_number + ";" + item.text + ";" + str(doc_votes) + "\n")
 
 logging.info(f"Iniciando criacao do arquivo {instrucoes[2]}")
 arquivo_esperados = "../RESULT/"+instrucoes[2]
 with open(arquivo_esperados, 'w',  newline='') as esperados_csv:
         esperados_csv.writelines(esperados)
+
+esperados_csv.close()
 logging.info(f"Criacao do arquivo {instrucoes[2]} finalizada.")
 
 logging.info("Processador de consultas - Finalizando execucao.")
+

@@ -6,6 +6,9 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import re
 import numpy as np
+from nltk.stem import PorterStemmer
+
+ps = PorterStemmer()
 
 stopwords_idioma = stopwords.words('english')
 stopwords_idioma.extend(["et", "al"])
@@ -15,27 +18,35 @@ logging.info("Buscador - Iniciando Execucao")
 
 path_config = "../SRC/config/BUSCA.CFG"
 
+stemmer_option = False
+
 logging.info(f"Buscador - Iniciando leitura do arquivo de configuracao: {path_config};")
 busca_cf = open(path_config, 'r')
 instrucoes = []
 
 logging.info(f"Obtendo informacoes do arquivo: {path_config};")
 for line in busca_cf:
-    split = line.replace("<","").replace(">","").replace("\n","").split("=")
-    instrucoes.append(split[1])
-    logging.info(f"Leitura Instrucao {split[1]} ok;")
+    if not("=" in line):
+        if line.replace("\n","").replace(" ", "") == "STEMMER":
+            stemmer_option = True
+            logging.info("STEMMER OPTION ATIVADA!")
+    else:
+        split = line.replace("<","").replace(">","").replace("\n","").split("=")
+        instrucoes.append(split[1])
+        logging.info(f"Leitura Instrucao {split[1]} ok;")
 
 busca_cf.close()
 logging.info(f"Obtencao as informacoes do arquivo: {path_config} finalizada;")
 
 path_modelo = "../RESULT/"+instrucoes[0]
 logging.info(f"Iniciando leitura do arquivo: {path_modelo};")
+
 mv_dic = {}
 mv_csv = pd.read_csv(path_modelo, sep=";", encoding="utf_8")
 mv_csv.columns = ['Word','ListDocs']
 last_doc = 0
 
-logging.info(f"Tratando dados obtidos da {instrucoes[1]}")
+logging.info(f"Tratando dados obtidos da {instrucoes[0]}")
 for linha in mv_csv.iterrows():
     documentos = linha[1]['ListDocs'].replace("[","").replace("]","").replace(" ","").replace("'","")
     documentos = documentos.split(",")
@@ -49,7 +60,7 @@ for linha in mv_csv.iterrows():
         wij_list[pesos[0]] = pesos[1]
 
     # wij_list[docj] = [wij]
-    mv_dic[str([linha[1]['Word']]).replace("[","").replace("]","").replace(" ","").replace("'","")] = wij_list
+    mv_dic[str([linha[1]['Word']]).replace("[", "").replace("]", "").replace(" ", "").replace("'", "")] = wij_list
 logging.info(f"Leitura do arquivo: {path_modelo} finalizada;")
 
 
@@ -69,7 +80,8 @@ for linha in consultas_csv.iterrows():
     palavras = []
     for word in query_texts_limpa:
         if word.lower() not in stopwords_idioma and len(word.lower())>=2:
-            palavras.append(word.upper())
+            stemmer_word = ps.stem(word) if stemmer_option else word
+            palavras.append(stemmer_word.upper())
 
     query_list_dic[linha[1]['QueryNumber']] = palavras
 logging.info(f"Leitura do arquivo: {path_consultas} finalizada;")
@@ -111,9 +123,14 @@ for query_number in query_list_dic.keys():
 
 logging.info("Calculo de similaridade finalizado;")
 
-logging.info(f"Iniciando criacao do arquivo {instrucoes[2]};")
+nome_arquivo, extensao = instrucoes[2].split(".")
+nome_arquivo += "-STEMMER" if stemmer_option else "-NOSTEMMER"
+escreva = nome_arquivo + "." + extensao
 
-path_resultados = "../RESULT/"+instrucoes[2]
+logging.info(f"Iniciando criacao do arquivo {escreva};")
+
+path_resultados = "../RESULT/"+escreva
+
 with open(path_resultados, 'w', newline='') as escreva_csv:
     escreva_csv.writelines(imprime)
 

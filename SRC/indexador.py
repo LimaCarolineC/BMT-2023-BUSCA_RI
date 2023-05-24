@@ -2,6 +2,9 @@ import csv
 import logging
 import pandas as pd
 import math
+from nltk.stem import PorterStemmer
+
+ps = PorterStemmer()
 
 logging.basicConfig(filename="../LOG/indexador_log.log", level=logging.INFO, format="%(asctime)s - %(message)s")
 logging.info("Indexador - Iniciando Execucao;")
@@ -12,19 +15,30 @@ logging.info(f"Indexador - Lendo arquivo de configuracao: {path_config};")
 index_cfg = open(path_config, 'r')
 instrucoes = []
 
+stemmer_option = False
+
 logging.info(f"Obtendo informacoes do arquivo: {path_config};")
 for line in index_cfg:
-    split = line.replace("<","").rstrip(">\n ").split("=")
-    instrucoes.append(split[1])
+    if not("=" in line):
+        if line.replace("\n","").replace(" ", "") == "STEMMER":
+            stemmer_option = True
+            logging.info("STEMMER OPTION ATIVADA!")
+    else:
+        split = line.replace("<","").rstrip(">\n ").split("=")
+        instrucoes.append(split[1])
 
-logging.info(f"Arquivo a ser lido: {instrucoes[0]};")
+nome_arquivo, extensao = instrucoes[0].split(".")
+nome_arquivo += "-STEMMER" if stemmer_option else "-NOSTEMMER"
+leia = nome_arquivo + "." + extensao
+
+logging.info(f"Arquivo a ser lido: {leia};")
 logging.info(f"Arquivo para armazenar tf/idf: {instrucoes[1]};")
 index_cfg.close()
 logging.info(f"Leitura do arquivo {path_config} finalizada;")
 
 
-logging.info(f"Iniciando leitura do arquivo {instrucoes[0]};")
-path_leitura = "../RESULT/"+instrucoes[0]
+logging.info(f"Iniciando leitura do arquivo {leia};")
+path_leitura = "../RESULT/"+leia
 
 lista_invertida_dic = {}
 doc_total_termos = {}

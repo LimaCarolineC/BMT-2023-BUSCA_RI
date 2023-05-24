@@ -8,6 +8,9 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import re
 import string
+from nltk.stem import PorterStemmer
+
+ps = PorterStemmer()
 
 path_config = "../SRC/config/GLI.CFG"
 stopwords_idioma = stopwords.words('english')
@@ -23,15 +26,25 @@ gli_cfg = open(path_config, 'r')
 
 lista_leia = []
 lista_escreva = []
+stemmer_option = False
 
 #Obtendo instruções
 logging.info(f"Obtendo Instrucoes do arquivo {path_config}")
 for line in gli_cfg:
+    if not("=" in line):
+        if line.replace("\n","").replace(" ", "") == "STEMMER":
+            stemmer_option = True
+            logging.info("STEMMER OPTION ATIVADA!")
+
     split = line.replace("<","").rstrip(">\n ").split('=')
     if split[0]=="LEIA":
         lista_leia.append(split[1])
     if split[0]=="ESCREVA":
-        lista_escreva.append(split[1])
+        nome_arquivo, extensao = split[1].split(".")
+        nome_arquivo += "-STEMMER" if stemmer_option else "-NOSTEMMER"
+        file = nome_arquivo + "." + extensao
+        lista_escreva.append(file)
+
 gli_cfg.close()
 
 logging.info(f"Quantidade de instrucoes do arquivo config: {len(lista_leia)+len(lista_escreva)}")
@@ -63,6 +76,7 @@ for doc in lista_leia:
         for palavra in abstract_limpa:
             if(palavra.lower() not in stopwords_idioma and
                     palavra.lower() not in string.punctuation and not palavra.isdigit() and len(palavra.lower())>=2):
+                palavra = ps.stem(palavra) if stemmer_option else palavra
                 if palavra.upper() in lista_palavras.keys():
                     lista_palavras[palavra.upper()].append(record_num)
                     continue
