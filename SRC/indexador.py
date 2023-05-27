@@ -6,7 +6,7 @@ from nltk.stem import PorterStemmer
 
 ps = PorterStemmer()
 
-logging.basicConfig(filename="../LOG/indexador_log.log", level=logging.INFO, format="%(asctime)s - %(message)s")
+logging.basicConfig(filename="../LOG/indexador_log.txt", level=logging.INFO, format="%(asctime)s - %(message)s")
 logging.info("Indexador - Iniciando Execucao;")
 
 path_config="../SRC/config/INDEX.CFG"

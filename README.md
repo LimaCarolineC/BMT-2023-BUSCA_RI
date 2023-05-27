@@ -1,4 +1,4 @@
-IMPLEMENTAÇÃO DE UM SISTEMA DE RECUPERAÇÃO EM MEMÓRIA SEGUNDO O MODELO VETORIAL
+IMPLEMENTAÇÃO DE UM SISTEMA DE RECUPERAÇÃO EM MEMÓRIA SEGUNDO O MODELO VETORIAL - INSERÇÃO STEMMER
 
 Os códigos devem ser executados na seguinte orgem:
 	1 - processador_consultas.py
@@ -38,4 +38,16 @@ No diretório 'RESULT' estão armazenados os arquivos gerados por cada módulo:
 	* modelo_vetorial.csv
 	* resultados.csv
 	
-O modo como os arquivos modelo_vetorial.csv e resultados.csv estão estruturados é descrito no arquivo 'MODELO.DOC'	
+O modo como os arquivos modelo_vetorial.csv e resultados.csv estão estruturados é descrito no arquivo 'MODELO.DOC'
+
+
+Módulo STEMMER
+Após a inserção, é preciso inserir o termo 'STEMMER' ou 'NOSTEMMER' nos arquivos de configuração abaixo:
+	* GLI.CFG
+	* INDEX.CFG
+	* BUSCA.CFG
+	* AVALIA.CFG
+
+O arquivo AVALIA.CFG foi criado neste módulo a fim de controlar os métodos de avaliação do Método de avaliação previamente desenvolvido.
+
+O diretório 'AVALIA' possui os gráficos e csv já obtidos. A aplicação já foi compilada para o STEMMER e NOSTEMMER

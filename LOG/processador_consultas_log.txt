@@ -1,16 +1,16 @@
-2023-05-16 17:42:36,799 - Processador de Consultas - Iniciando execucao;
-2023-05-16 17:42:36,799 - Processador de Consultas - Lendo arquivo de configuracao: ../SRC/config/PC.CFG
-2023-05-16 17:42:36,799 - Obtendo Instrucoes do arquivo ../SRC/config/PC.CFG
-2023-05-16 17:42:36,799 - Arquivo a ser lido: cfquery.xml
-2023-05-16 17:42:36,799 - Arquivo para armazenar consultas: consultas.csv
-2023-05-16 17:42:36,799 - Arquivo para armazenar resultados esperados: esperados.csv
-2023-05-16 17:42:36,799 - Iniciando leitura do arquivo cfquery.xml
-2023-05-16 17:42:36,846 - Numero de tags QueryNumber obtido: 99
-2023-05-16 17:42:36,846 - Numero de tags QueryText obtido: 99
-2023-05-16 17:42:36,862 - Leitura de cfquery.xml finalizada
-2023-05-16 17:42:36,862 - Criando arquivo consultas.csv
-2023-05-16 17:42:36,862 - Criacao do arquivo consultas.csv finalizada.
-2023-05-16 17:42:36,862 - Obtendo DocNumber e DocVotes.
-2023-05-16 17:42:37,627 - Iniciando criacao do arquivo esperados.csv
-2023-05-16 17:42:38,033 - Criacao do arquivo esperados.csv finalizada.
-2023-05-16 17:42:38,033 - Processador de consultas - Finalizando execucao.
+2023-05-26 23:15:22,189 - Processador de Consultas - Iniciando execucao;
+2023-05-26 23:15:22,189 - Processador de Consultas - Lendo arquivo de configuracao: ../SRC/config/PC.CFG
+2023-05-26 23:15:22,189 - Obtendo Instrucoes do arquivo ../SRC/config/PC.CFG
+2023-05-26 23:15:22,189 - Arquivo a ser lido: cfquery.xml
+2023-05-26 23:15:22,189 - Arquivo para armazenar consultas: consultas.csv
+2023-05-26 23:15:22,189 - Arquivo para armazenar resultados esperados: esperados.csv
+2023-05-26 23:15:22,197 - Iniciando leitura do arquivo cfquery.xml
+2023-05-26 23:15:22,537 - Numero de tags QueryNumber obtido: 99
+2023-05-26 23:15:22,537 - Numero de tags QueryText obtido: 99
+2023-05-26 23:15:22,570 - Leitura de cfquery.xml finalizada
+2023-05-26 23:15:22,578 - Criando arquivo consultas.csv
+2023-05-26 23:15:22,579 - Criacao do arquivo consultas.csv finalizada.
+2023-05-26 23:15:22,579 - Obtendo DocNumber e DocVotes.
+2023-05-26 23:15:22,603 - Iniciando criacao do arquivo esperados.csv
+2023-05-26 23:15:22,620 - Criacao do arquivo esperados.csv finalizada.
+2023-05-26 23:15:22,620 - Processador de consultas - Finalizando execucao.

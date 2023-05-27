@@ -1,18 +1,37 @@
-2023-05-16 17:53:34,270 - Buscador - Iniciando Execucao
-2023-05-16 17:53:34,270 - Buscador - Iniciando leitura do arquivo de configuracao: ../SRC/config/BUSCA.CFG;
-2023-05-16 17:53:34,270 - Obtendo informacoes do arquivo: ../SRC/config/BUSCA.CFG;
-2023-05-16 17:53:34,270 - Leitura Instrucao modelo_vetorial.csv ok;
-2023-05-16 17:53:34,270 - Leitura Instrucao consultas.csv ok;
-2023-05-16 17:53:34,270 - Leitura Instrucao resultados.csv ok;
-2023-05-16 17:53:34,270 - Obtencao as informacoes do arquivo: ../SRC/config/BUSCA.CFG finalizada;
-2023-05-16 17:53:34,270 - Iniciando leitura do arquivo: ../RESULT/modelo_vetorial.csv;
-2023-05-16 17:53:34,317 - Tratando dados obtidos da consultas.csv
-2023-05-16 17:53:35,051 - Leitura do arquivo: ../RESULT/modelo_vetorial.csv finalizada;
-2023-05-16 17:53:35,051 - Iniciando leitura do arquivo: ../RESULT/consultas.csv;
-2023-05-16 17:53:35,051 - Tratando dados obtidos da consultas.csv
-2023-05-16 17:53:35,082 - Leitura do arquivo: ../RESULT/consultas.csv finalizada;
-2023-05-16 17:53:35,082 - Iniciando calculo de similaridade;
-2023-05-16 17:53:39,175 - Calculo de similaridade finalizado;
-2023-05-16 17:53:39,175 - Iniciando criacao do arquivo resultados.csv;
-2023-05-16 17:53:39,285 - Criacao do arquivo ../RESULT/resultados.csv finalizada;
-2023-05-16 17:53:39,285 - Buscador - Exacucao Finalizada
+2023-05-26 23:15:50,159 - Buscador - Iniciando Execucao
+2023-05-26 23:15:50,159 - Buscador - Iniciando leitura do arquivo de configuracao: ../SRC/config/BUSCA.CFG;
+2023-05-26 23:15:50,159 - Obtendo informacoes do arquivo: ../SRC/config/BUSCA.CFG;
+2023-05-26 23:15:50,159 - Leitura Instrucao modelo_vetorial.csv ok;
+2023-05-26 23:15:50,159 - Leitura Instrucao consultas.csv ok;
+2023-05-26 23:15:50,159 - Leitura Instrucao resultados.csv ok;
+2023-05-26 23:15:50,159 - Obtencao as informacoes do arquivo: ../SRC/config/BUSCA.CFG finalizada;
+2023-05-26 23:15:50,159 - Iniciando leitura do arquivo: ../RESULT/modelo_vetorial.csv;
+2023-05-26 23:15:50,224 - Tratando dados obtidos da modelo_vetorial.csv
+2023-05-26 23:15:51,122 - Leitura do arquivo: ../RESULT/modelo_vetorial.csv finalizada;
+2023-05-26 23:15:51,122 - Iniciando leitura do arquivo: ../RESULT/consultas.csv;
+2023-05-26 23:15:51,122 - Tratando dados obtidos da consultas.csv
+2023-05-26 23:15:51,163 - Leitura do arquivo: ../RESULT/consultas.csv finalizada;
+2023-05-26 23:15:51,163 - Iniciando calculo de similaridade;
+2023-05-26 23:15:55,397 - Calculo de similaridade finalizado;
+2023-05-26 23:15:55,397 - Iniciando criacao do arquivo resultados-NOSTEMMER.csv;
+2023-05-26 23:15:55,520 - Criacao do arquivo ../RESULT/resultados-NOSTEMMER.csv finalizada;
+2023-05-26 23:15:55,520 - Buscador - Exacucao Finalizada
+2023-05-26 23:28:42,191 - Buscador - Iniciando Execucao
+2023-05-26 23:28:42,191 - Buscador - Iniciando leitura do arquivo de configuracao: ../SRC/config/BUSCA.CFG;
+2023-05-26 23:28:42,191 - Obtendo informacoes do arquivo: ../SRC/config/BUSCA.CFG;
+2023-05-26 23:28:42,191 - STEMMER OPTION ATIVADA!
+2023-05-26 23:28:42,191 - Leitura Instrucao modelo_vetorial.csv ok;
+2023-05-26 23:28:42,191 - Leitura Instrucao consultas.csv ok;
+2023-05-26 23:28:42,191 - Leitura Instrucao resultados.csv ok;
+2023-05-26 23:28:42,191 - Obtencao as informacoes do arquivo: ../SRC/config/BUSCA.CFG finalizada;
+2023-05-26 23:28:42,191 - Iniciando leitura do arquivo: ../RESULT/modelo_vetorial.csv;
+2023-05-26 23:28:42,240 - Tratando dados obtidos da modelo_vetorial.csv
+2023-05-26 23:28:42,868 - Leitura do arquivo: ../RESULT/modelo_vetorial.csv finalizada;
+2023-05-26 23:28:42,868 - Iniciando leitura do arquivo: ../RESULT/consultas.csv;
+2023-05-26 23:28:42,876 - Tratando dados obtidos da consultas.csv
+2023-05-26 23:28:42,941 - Leitura do arquivo: ../RESULT/consultas.csv finalizada;
+2023-05-26 23:28:42,941 - Iniciando calculo de similaridade;
+2023-05-26 23:28:47,255 - Calculo de similaridade finalizado;
+2023-05-26 23:28:47,255 - Iniciando criacao do arquivo resultados-STEMMER.csv;
+2023-05-26 23:28:47,386 - Criacao do arquivo ../RESULT/resultados-STEMMER.csv finalizada;
+2023-05-26 23:28:47,386 - Buscador - Exacucao Finalizada

@@ -13,7 +13,7 @@ ps = PorterStemmer()
 stopwords_idioma = stopwords.words('english')
 stopwords_idioma.extend(["et", "al"])
 
-logging.basicConfig(filename="../LOG/buscador_log.log", level=logging.INFO, format="%(asctime)s - %(message)s")
+logging.basicConfig(filename="../LOG/buscador_log.txt", level=logging.INFO, format="%(asctime)s - %(message)s")
 logging.info("Buscador - Iniciando Execucao")
 
 path_config = "../SRC/config/BUSCA.CFG"

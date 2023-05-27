@@ -8,7 +8,7 @@ import re
 path_config = "../SRC/config/PC.CFG"
 
 #settando configurações do logging
-logging.basicConfig(filename="../LOG/processador_consultas_log.log" ,level=logging.INFO, format="%(asctime)s - %(message)s")
+logging.basicConfig(filename="../LOG/processador_consultas_log.txt" ,level=logging.INFO, format="%(asctime)s - %(message)s")
 
 logging.info("Processador de Consultas - Iniciando execucao;")
 
